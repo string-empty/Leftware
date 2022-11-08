@@ -1,4 +1,4 @@
-using Leftware.Infrastructure.Events;
+using Leftware.Infrastructure.InternalBus;
 using Leftware.Plugins;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,7 +9,7 @@ public class InfrastructurePlugin : IPlugin
 {
     public void RegisterDependencies(IServiceCollection services)
     {
-        services.AddSingleton<IEventBus, EventBus>();
+        services.AddSingleton<IMessageBus, MessageBus>();
     }
 
     public void Enable(IApplicationBuilder app)
