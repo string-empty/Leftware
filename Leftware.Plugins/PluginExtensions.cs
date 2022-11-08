@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,5 +20,15 @@ public static class PluginExtensions
             plugin.Enable(app);
 
         return app;
+    }
+    
+    public static IMvcBuilder AddPluginControllers(
+        this IMvcBuilder mvcBuilder,
+        IEnumerable<IPlugin> plugins)
+    {
+        foreach (var plugin in plugins)
+            mvcBuilder.AddApplicationPart(plugin.GetType().Assembly);
+
+        return mvcBuilder;
     }
 }

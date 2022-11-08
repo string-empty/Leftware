@@ -7,12 +7,16 @@ var plugins = PluginLibraryLoader.LoadPlugins();
 builder.Services
     .AddPlugins(plugins)
     .AddEndpointsApiExplorer()
-    .AddSwaggerGen();
+    .AddSwaggerGen()
+    .AddControllers()
+    .AddPluginControllers(plugins);
 
 var app = builder.Build();
 
 app
     .UsePlugins(plugins)
+    .UseRouting()
+    .UseEndpoints(a => a.MapControllers())
     .UseSwagger()
     .UseSwaggerUI()
     .UseHttpsRedirection()
