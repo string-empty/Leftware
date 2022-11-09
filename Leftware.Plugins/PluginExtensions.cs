@@ -23,12 +23,26 @@ public static class PluginExtensions
     }
     
     public static IMvcBuilder AddPluginControllers(
-        this IMvcBuilder mvcBuilder,
-        IEnumerable<IPlugin> plugins)
+        this IMvcBuilder mvcBuilder)
     {
-        foreach (var plugin in plugins)
-            mvcBuilder.AddApplicationPart(plugin.GetType().Assembly);
+        foreach (var assembly in GetAssembliesWithControllers())
+            mvcBuilder.AddApplicationPart(assembly);
 
         return mvcBuilder;
+    }
+    
+    private static ICollection<Assembly> GetAssembliesWithControllers()
+    {
+        var executingAssembly = Assembly.GetExecutingAssembly();
+        var hostLocation = Path.GetDirectoryName(executingAssembly.Location);
+
+        if (hostLocation is null)
+            throw new Exception("Host location unknown (lol)");
+    
+        return Directory
+            .EnumerateFiles(hostLocation)
+            .Where(file => Path.GetFileName(file).EndsWith(".Api.dll"))
+            .Select(Assembly.LoadFrom)
+            .ToArray();
     }
 }

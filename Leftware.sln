@@ -8,6 +8,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leftware.Plugins", "Leftwar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leftware.Plugin.Sample", "Leftware.Plugin.Sample\Leftware.Plugin.Sample.csproj", "{CBCB8501-D595-4E43-8767-264483D470C5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TechnicalStuff", "TechnicalStuff", "{26E4048A-646F-4DDA-B58F-5C26A0057B02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{F10B6AD9-D03A-4625-8222-3CA5C191F1E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leftware.Plugin.Sample.Api", "Leftware.Plugin.Sample.Api\Leftware.Plugin.Sample.Api.csproj", "{DD30157B-C276-4605-B930-245BEC424BDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +36,15 @@ Global
 		{CBCB8501-D595-4E43-8767-264483D470C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBCB8501-D595-4E43-8767-264483D470C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBCB8501-D595-4E43-8767-264483D470C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD30157B-C276-4605-B930-245BEC424BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD30157B-C276-4605-B930-245BEC424BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD30157B-C276-4605-B930-245BEC424BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD30157B-C276-4605-B930-245BEC424BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9EAECD47-4C9C-4125-BD95-AACC51E8B631} = {26E4048A-646F-4DDA-B58F-5C26A0057B02}
+		{FF839B63-7328-46F3-A4FE-58583379E2E3} = {26E4048A-646F-4DDA-B58F-5C26A0057B02}
+		{CBCB8501-D595-4E43-8767-264483D470C5} = {F10B6AD9-D03A-4625-8222-3CA5C191F1E3}
+		{DD30157B-C276-4605-B930-245BEC424BDD} = {F10B6AD9-D03A-4625-8222-3CA5C191F1E3}
 	EndGlobalSection
 EndGlobal

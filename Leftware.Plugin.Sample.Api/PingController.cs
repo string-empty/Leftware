@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Leftware.Plugin.Sample;
+namespace Leftware.Plugin.Sample.Api;
 
 [Route("ping")]
 [ApiController]
