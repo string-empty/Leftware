@@ -1,3 +1,4 @@
+using Leftware.Infrastructure.InternalBus;
 using Leftware.Plugins;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,7 +9,7 @@ public class SamplePlugin : IPlugin
 {
     public void RegisterDependencies(IServiceCollection services)
     {
-        services.AddSingleton<ISampleRegistration, SampleRegistration>();
+        services.AddSingleton<ICommandHandler<SampleRequest>, SampleRequestHandler>();
     }
 
     public void Use(IApplicationBuilder app)
