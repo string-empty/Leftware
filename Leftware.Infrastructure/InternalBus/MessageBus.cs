@@ -1,16 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace Leftware.Infrastructure.InternalBus;
 
 public class MessageBus : IMessageBus
 {
-    private ILogger<MessageBus> _logger;
     private readonly IServiceProvider _serviceProvider;
 
-    public MessageBus(ILogger<MessageBus> logger, IServiceProvider serviceProvider)
+    public MessageBus(IServiceProvider serviceProvider)
     {
-        _logger = logger;
         _serviceProvider = serviceProvider;
     }
 

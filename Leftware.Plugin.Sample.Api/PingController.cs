@@ -6,6 +6,13 @@ namespace Leftware.Plugin.Sample.Api;
 [ApiController]
 public class PingController : ControllerBase
 {
+    private readonly ISampleRegistration _sampleRegistration;
+
+    public PingController(ISampleRegistration sampleRegistration)
+    {
+        _sampleRegistration = sampleRegistration;
+    }
+    
     [HttpGet]
-    public ActionResult Ping() => Ok();
+    public ActionResult<string> Ping() => Ok(_sampleRegistration.Greeting);
 }

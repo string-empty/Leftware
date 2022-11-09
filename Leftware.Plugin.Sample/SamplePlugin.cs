@@ -8,6 +8,7 @@ public class SamplePlugin : IPlugin
 {
     public void RegisterDependencies(IServiceCollection services)
     {
+        services.AddSingleton<ISampleRegistration, SampleRegistration>();
     }
 
     public void Use(IApplicationBuilder app)
