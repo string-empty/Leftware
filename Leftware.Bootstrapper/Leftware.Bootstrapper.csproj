@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Leftware.Infrastructure\Leftware.Infrastructure.csproj" />
       <ProjectReference Include="..\Leftware.Plugins\Leftware.Plugins.csproj" />
     </ItemGroup>
 

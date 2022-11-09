@@ -7,14 +7,20 @@ public static class PluginLibraryLoader
 {
     public static ICollection<IPlugin> LoadPlugins()
     {
-        var hostLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        var executingAssembly = Assembly.GetExecutingAssembly();
+        var hostLocation = Path.GetDirectoryName(executingAssembly.Location);
 
         if (hostLocation is null)
             throw new Exception("Host location unknown (lol)");
     
         return Directory
             .EnumerateFiles(hostLocation)
-            .Where(file => file.Contains("Leftware.") && file.EndsWith(".dll"))
+            .Except(new[] { executingAssembly.Location })
+            .Where(file =>
+            {
+                var fileName = Path.GetFileName(file);
+                return fileName.StartsWith("Leftware.Plugin.") && Path.GetExtension(fileName) == ".dll";
+            })
             .Select(LoadPlugin)
             .ToArray();
     }

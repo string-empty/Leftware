@@ -17,7 +17,7 @@ public static class PluginExtensions
     public static IApplicationBuilder UsePlugins(this IApplicationBuilder app, IEnumerable<IPlugin> plugins)
     {
         foreach (var plugin in plugins)
-            plugin.Enable(app);
+            plugin.Use(app);
 
         return app;
     }

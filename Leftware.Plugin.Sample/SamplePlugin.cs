@@ -1,9 +1,10 @@
+using Leftware.Plugins;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Leftware.Plugins;
+namespace Leftware.Plugin.Sample;
 
-public sealed class EmptyPlugin : IPlugin
+public class SamplePlugin : IPlugin
 {
     public void RegisterDependencies(IServiceCollection services)
     {

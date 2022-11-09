@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Leftware.Infrastructure;
+namespace Leftware.Plugin.Sample;
 
 [Route("ping")]
 [ApiController]
 public class PingController : ControllerBase
 {
     [HttpGet]
-    public ActionResult<string> Ping() => Ok();
+    public ActionResult Ping() => Ok();
 }

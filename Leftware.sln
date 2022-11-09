@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leftware.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leftware.Plugins", "Leftware.Plugins\Leftware.Plugins.csproj", "{9EAECD47-4C9C-4125-BD95-AACC51E8B631}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leftware.Plugin.Sample", "Leftware.Plugin.Sample\Leftware.Plugin.Sample.csproj", "{CBCB8501-D595-4E43-8767-264483D470C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{9EAECD47-4C9C-4125-BD95-AACC51E8B631}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EAECD47-4C9C-4125-BD95-AACC51E8B631}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EAECD47-4C9C-4125-BD95-AACC51E8B631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCB8501-D595-4E43-8767-264483D470C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCB8501-D595-4E43-8767-264483D470C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCB8501-D595-4E43-8767-264483D470C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCB8501-D595-4E43-8767-264483D470C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

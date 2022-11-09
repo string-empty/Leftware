@@ -6,5 +6,5 @@ namespace Leftware.Plugins;
 public interface IPlugin
 {
     void RegisterDependencies(IServiceCollection services);
-    void Enable(IApplicationBuilder app);
+    void Use(IApplicationBuilder app);
 }
