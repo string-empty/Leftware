@@ -37,4 +37,19 @@ public static class PluginLibraryLoader
 
         return Activator.CreateInstance(providedConfigurator) as IPlugin ?? new EmptyPlugin();
     }
+    
+    public static WebApplicationBuilder AddPluginConfiguration(this WebApplicationBuilder builder)
+    {
+        foreach (var settings in GetSettings("*"))
+            builder.Configuration.AddJsonFile(settings);
+
+        foreach (var settings in GetSettings($"*.{builder.Environment.EnvironmentName}"))
+            builder.Configuration.AddJsonFile(settings);
+
+        return builder;
+        
+        IEnumerable<string> GetSettings(string pattern)
+            => Directory.EnumerateFiles(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty,
+                $"plugin.{pattern}.json", SearchOption.AllDirectories);
+    }
 }

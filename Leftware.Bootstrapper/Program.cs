@@ -5,7 +5,9 @@ using Leftware.Plugins;
 var builder = WebApplication.CreateBuilder(args);
 var plugins = PluginLibraryLoader.LoadPlugins();
 
-builder.Services
+builder
+    .AddPluginConfiguration()
+    .Services
     .AddInternalBus()
     .AddPlugins(plugins)
     .AddEndpointsApiExplorer()
