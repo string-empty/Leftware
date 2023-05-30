@@ -20,7 +20,7 @@ serviceCollection
     .AddPluginControllers();
 
 var app = builder.Build();
-app.MapHealthChecks("/healthz");
+app.MapHealthChecks("/alive");
 
 app
     .UsePlugins(plugins)

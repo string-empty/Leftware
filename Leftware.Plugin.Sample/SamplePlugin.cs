@@ -20,6 +20,6 @@ public class SamplePlugin : IPlugin
 
     public void AddHealthCheck(IHealthChecksBuilder healthChecksBuilder)
     {
-        healthChecksBuilder.AddCheck<Lol>("Sample");
+        healthChecksBuilder.AddCheck<SampleHealtCheck>("Sample");
     }
 }
