@@ -12,4 +12,8 @@ public sealed class EmptyPlugin : IPlugin
     public void Use(IApplicationBuilder app)
     {
     }
+
+    public void AddHealthCheck(IHealthChecksBuilder healthChecksBuilder)
+    {
+    }
 }

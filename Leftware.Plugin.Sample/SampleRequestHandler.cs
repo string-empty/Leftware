@@ -1,8 +1,19 @@
 using Leftware.Infrastructure.InternalBus;
 using Leftware.Plugin.Sample.Configuration;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
 
 namespace Leftware.Plugin.Sample;
+
+public class Lol : IHealthCheck
+{
+    public Task<HealthCheckResult> CheckHealthAsync(
+        HealthCheckContext context,
+        CancellationToken cancellationToken = new())
+    {
+        return Task.FromResult( HealthCheckResult.Healthy("A healthy result."));
+    }
+}
 
 public class SampleRequestHandler : ICommandHandler<SampleRequest>
 {

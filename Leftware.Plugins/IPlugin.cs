@@ -7,4 +7,5 @@ public interface IPlugin
 {
     void RegisterDependencies(IServiceCollection services);
     void Use(IApplicationBuilder app);
+    void AddHealthCheck(IHealthChecksBuilder healthChecksBuilder);
 }

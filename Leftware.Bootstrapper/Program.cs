@@ -5,9 +5,13 @@ using Leftware.Plugins;
 var builder = WebApplication.CreateBuilder(args);
 var plugins = PluginLibraryLoader.LoadPlugins();
 
-builder
+var serviceCollection = builder
     .AddPluginConfiguration()
-    .Services
+    .Services;
+
+serviceCollection.AddHealthChecks().AddPluginHealthChecks(plugins);
+
+serviceCollection
     .AddInternalBus()
     .AddPlugins(plugins)
     .AddEndpointsApiExplorer()
@@ -16,6 +20,7 @@ builder
     .AddPluginControllers();
 
 var app = builder.Build();
+app.MapHealthChecks("/healthz");
 
 app
     .UsePlugins(plugins)

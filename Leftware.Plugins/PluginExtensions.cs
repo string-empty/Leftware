@@ -31,6 +31,15 @@ public static class PluginExtensions
         return mvcBuilder;
     }
     
+    public static IHealthChecksBuilder AddPluginHealthChecks(
+        this IHealthChecksBuilder healthChecksBuilder, IEnumerable<IPlugin> plugins)
+    {
+        foreach (var plugin in plugins)
+            plugin.AddHealthCheck(healthChecksBuilder);
+
+        return healthChecksBuilder;
+    }
+    
     private static ICollection<Assembly> GetAssembliesWithControllers()
     {
         var executingAssembly = Assembly.GetExecutingAssembly();

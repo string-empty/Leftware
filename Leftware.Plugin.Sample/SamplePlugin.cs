@@ -17,4 +17,9 @@ public class SamplePlugin : IPlugin
     public void Use(IApplicationBuilder app)
     {
     }
+
+    public void AddHealthCheck(IHealthChecksBuilder healthChecksBuilder)
+    {
+        healthChecksBuilder.AddCheck<Lol>("Sample");
+    }
 }
