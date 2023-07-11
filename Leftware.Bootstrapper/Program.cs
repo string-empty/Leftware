@@ -1,3 +1,5 @@
+using FastEndpoints;
+using FastEndpoints.Swagger;
 using Leftware.Bootstrapper;
 using Leftware.Infrastructure;
 using Leftware.Plugins;
@@ -9,7 +11,11 @@ var serviceCollection = builder
     .AddPluginConfiguration()
     .Services;
 
-serviceCollection.AddHealthChecks().AddPluginHealthChecks(plugins);
+serviceCollection
+    .AddFastEndpoints(o => o.ScanFastEndpoints())
+    .SwaggerDocument()
+    .AddHealthChecks()
+    .AddPluginHealthChecks(plugins);
 
 serviceCollection
     .AddInternalBus()
@@ -25,8 +31,9 @@ app.MapHealthChecks("/alive");
 app
     .UsePlugins(plugins)
     .UseRouting()
+    .UseFastEndpoints()
     .UseEndpoints(a => a.MapControllers())
-    .UseSwagger()
+    .UseSwaggerGen()
     .UseSwaggerUI()
     .UseHttpsRedirection()
     .UseAuthorization();

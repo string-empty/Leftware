@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Leftware.Plugin.Sample.Api;
 
-[Route("ping")]
+[Route("/slow/ping")]
 [ApiController]
 public class SampleController : ControllerBase
 {

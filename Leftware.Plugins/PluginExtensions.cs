@@ -1,4 +1,5 @@
 using System.Reflection;
+using FastEndpoints;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,6 +21,12 @@ public static class PluginExtensions
             plugin.Use(app);
 
         return app;
+    }
+    
+    public static void ScanFastEndpoints(this EndpointDiscoveryOptions options)
+    {
+        options.Assemblies = GetAssembliesWithControllers();
+        options.DisableAutoDiscovery = true;
     }
     
     public static IMvcBuilder AddPluginControllers(
@@ -47,7 +54,7 @@ public static class PluginExtensions
 
         if (hostLocation is null)
             throw new Exception("Host location unknown (lol)");
-    
+
         return Directory
             .EnumerateFiles(hostLocation)
             .Where(file => Path.GetFileName(file).EndsWith(".Api.dll"))
